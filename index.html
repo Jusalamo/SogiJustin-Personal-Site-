@@ -26,7 +26,7 @@ html{scroll-behavior:smooth}
 }
 
 body{font-family:'DM Sans',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;min-height:100vh;background-color:#160d06;background-image:repeating-linear-gradient(89deg,transparent 0,transparent 22px,rgba(255,200,100,.018) 22px,rgba(255,200,100,.018) 23px,transparent 23px,transparent 55px,rgba(0,0,0,.055) 55px,rgba(0,0,0,.055) 57px),repeating-linear-gradient(180deg,transparent 0,transparent 6px,rgba(255,180,60,.012) 6px,rgba(255,180,60,.012) 7px,transparent 7px,transparent 16px,rgba(0,0,0,.04) 16px,rgba(0,0,0,.04) 17px),radial-gradient(ellipse 260px 100px at 12% 25%,rgba(40,22,5,.5) 0%,transparent 100%),radial-gradient(ellipse 200px 80px at 88% 72%,rgba(30,15,4,.45) 0%,transparent 100%),linear-gradient(158deg,#1e1208 0%,#251508 30%,#1a0f06 55%,#221306 80%,#180d05 100%);}
-.page{display:flex;justify-content:center;padding:60px 20px 80px;}
+.page{display:flex;justify-content:center;padding:60px 20px 90px;}
 .cbf{width:100%;max-width:1020px;position:relative;border-radius:12px;padding:18px;background-color:#7a5028;background-image:repeating-linear-gradient(90deg,transparent 0,transparent 10px,rgba(255,200,100,.045) 10px,rgba(255,200,100,.045) 11px,transparent 11px,transparent 26px,rgba(0,0,0,.08) 26px,rgba(0,0,0,.08) 28px),linear-gradient(172deg,#9e6832 0%,#6b4118 28%,#7d5326 55%,#5c3a1a 80%,#6e4820 100%);box-shadow:0 44px 110px rgba(0,0,0,.92),0 14px 36px rgba(0,0,0,.72),inset 0 2px 0 rgba(255,200,100,.16),inset 0 -2px 0 rgba(0,0,0,.5),inset 2px 0 0 rgba(255,180,80,.1),inset -2px 0 0 rgba(0,0,0,.35);}
 .cbf::before{content:'';position:absolute;inset:8px;border-radius:6px;border:1px solid rgba(0,0,0,.48);pointer-events:none;z-index:1;}
 .cbf::after{content:'';position:absolute;inset:9px;border-radius:5px;border:1px solid rgba(255,180,80,.07);pointer-events:none;z-index:1;}
@@ -45,8 +45,8 @@ body{font-family:'DM Sans',sans-serif;-webkit-font-smoothing:antialiased;overflo
 .polaroid:hover{transform:scale(1.08) rotate(1deg);}
 .pol-img{width:100%;height:78px;object-fit:cover;display:block;}
 .pol-placeholder{width:100%;height:78px;background:linear-gradient(135deg,#1a1008 0%,#3d2518 100%);display:flex;align-items:center;justify-content:center;font-size:1.8rem;}
-.pol-caption{font-family:var(--f-handwritten);font-size:.68rem;color:#3d2018;text-align:center;margin-top:5px;line-height:1.3;}
-.sticky-note{width:116px;padding:10px 10px 8px;border-radius:1px 1px 5px 1px;box-shadow:2px 4px 10px rgba(0,0,0,.3),0 1px 0 rgba(255,255,255,.35) inset;font-family:var(--f-handwritten);font-size:.75rem;line-height:1.45;color:#2a1a08;position:relative;transition:transform .2s;}
+.pol-caption{font-family:var(--f-handwritten);font-size:.8rem;font-weight:700;color:#3d2018;text-align:center;margin-top:5px;line-height:1.3;}
+.sticky-note{width:120px;padding:11px 11px 9px;border-radius:1px 1px 5px 1px;box-shadow:2px 4px 10px rgba(0,0,0,.3),0 1px 0 rgba(255,255,255,.35) inset;font-family:var(--f-handwritten);font-size:.95rem;font-weight:700;line-height:1.4;color:#1a0e04;position:relative;transition:transform .2s;}
 .sticky-note:hover{transform:scale(1.08);}
 .sticky-note::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:rgba(0,0,0,.1);border-radius:1px 1px 0 0;}
 .sn-y{background:linear-gradient(168deg,#fff59d,#f9a825 200%)}.sn-p{background:linear-gradient(168deg,#f8bbd0,#e91e63 220%)}.sn-b{background:linear-gradient(168deg,#b3e5fc,#0288d1 220%)}.sn-g{background:linear-gradient(168deg,#c8e6c9,#388e3c 220%)}.sn-o{background:linear-gradient(168deg,#ffe0b2,#e65100 220%)}
@@ -325,41 +325,24 @@ body.admin-mode .add-sc-btn{display:flex;}
 .lb-close{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);color:white;padding:7px 18px;border-radius:100px;font-size:.8rem;cursor:pointer;font-family:'DM Sans',sans-serif;}
 
 /* ── INTRO OVERLAY ── */
-.intro-overlay{position:fixed;inset:0;z-index:9000;background:#160d06;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;transition:opacity .6s ease,visibility .6s ease;}
+/* ── INTRO SPLASH ── */
+.intro-overlay{position:fixed;inset:0;z-index:9000;background:#160d06;display:flex;align-items:center;justify-content:center;transition:opacity .8s ease,visibility .8s ease;}
 .intro-overlay.gone{opacity:0;visibility:hidden;pointer-events:none;}
-.intro-name{font-family:var(--f-title);font-size:clamp(2.2rem,7vw,4.8rem);color:#f7f0de;letter-spacing:-.02em;text-align:center;line-height:1;}
+.intro-inner{display:flex;flex-direction:column;align-items:center;text-align:center;animation:introFadeUp .9s cubic-bezier(.22,1,.36,1) both;}
+@keyframes introFadeUp{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:translateY(0);}}
+.intro-eyebrow{font-family:var(--f-typewriter);font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,200,80,.45);margin-bottom:18px;}
+.intro-name{font-family:var(--f-title);font-size:clamp(2.6rem,8vw,5.5rem);color:#f7f0de;letter-spacing:-.03em;line-height:.95;}
 .intro-name em{font-style:italic;color:#b91c1c;}
-.intro-tagline{font-family:var(--f-typewriter);font-size:clamp(.72rem,2vw,1.05rem);color:rgba(255,220,140,.65);letter-spacing:.18em;text-transform:uppercase;margin-top:14px;text-align:center;}
-.intro-sub{font-family:'DM Sans',sans-serif;font-size:.88rem;color:rgba(247,240,222,.55);margin-top:8px;text-align:center;max-width:380px;line-height:1.6;}
-.intro-cta{margin-top:32px;background:#b91c1c;color:white;border:none;border-radius:100px;padding:13px 36px;font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:600;cursor:pointer;letter-spacing:.04em;box-shadow:0 4px 24px rgba(185,28,28,.45);transition:transform .15s,box-shadow .15s;}
-.intro-cta:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(185,28,28,.55);}
-.intro-stats{display:flex;gap:32px;margin-top:28px;flex-wrap:wrap;justify-content:center;}
+.intro-rule{width:60px;height:2px;background:linear-gradient(90deg,transparent,rgba(185,28,28,.7),transparent);margin:22px auto;}
+.intro-tagline{font-family:var(--f-typewriter);font-size:clamp(.72rem,2vw,.88rem);color:rgba(255,220,140,.55);letter-spacing:.16em;text-transform:uppercase;}
+.intro-stats{display:flex;align-items:center;gap:20px;margin-top:32px;}
 .intro-stat{text-align:center;}
-.intro-stat-n{font-family:var(--f-title);font-size:2rem;color:#f5a623;line-height:1;}
-.intro-stat-l{font-family:var(--f-typewriter);font-size:.62rem;color:rgba(255,220,140,.5);letter-spacing:.1em;text-transform:uppercase;margin-top:3px;}
-.intro-skip{margin-top:18px;font-family:var(--f-typewriter);font-size:.65rem;color:rgba(255,220,140,.3);cursor:pointer;letter-spacing:.08em;border:none;background:none;}
-.intro-skip:hover{color:rgba(255,220,140,.55);}
-
-/* ── PERSISTENT BOTTOM BAR ── */
-.persist-bar{position:fixed;bottom:0;left:0;right:0;z-index:600;background:rgba(15,8,3,.92);backdrop-filter:blur(14px);border-top:1px solid rgba(255,180,80,.12);padding:10px 20px;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;}
-body.admin-mode .persist-bar{display:none;}
-.pb-btn{display:inline-flex;align-items:center;gap:7px;border:none;border-radius:100px;padding:9px 20px;font-family:'DM Sans',sans-serif;font-size:.82rem;font-weight:600;cursor:pointer;transition:all .18s;white-space:nowrap;}
-.pb-cv{background:#b91c1c;color:white;box-shadow:0 2px 12px rgba(185,28,28,.4);}
-.pb-cv:hover{background:#991b1b;transform:translateY(-1px);}
-.pb-email{background:rgba(255,240,200,.12);color:#f7f0de;border:1px solid rgba(255,200,80,.2);}
-.pb-email:hover{background:rgba(255,240,200,.2);}
-.pb-wa{background:rgba(37,211,102,.15);color:#25d366;border:1px solid rgba(37,211,102,.25);}
-.pb-wa:hover{background:rgba(37,211,102,.25);}
-.pb-sep{width:1px;height:22px;background:rgba(255,200,80,.12);flex-shrink:0;}
-.pb-tagline{font-family:var(--f-typewriter);font-size:.64rem;color:rgba(255,220,140,.4);letter-spacing:.06em;}
-@media(max-width:520px){.pb-tagline,.pb-sep{display:none;}.pb-btn{padding:9px 16px;font-size:.78rem;}}
-
-/* ── PROOF BANNER on name card ── */
-.proof-strip{display:flex;gap:14px;flex-wrap:wrap;margin-top:10px;padding-top:10px;border-top:1px dashed rgba(0,0,0,.12);}
-.proof-chip{display:inline-flex;align-items:center;gap:5px;font-family:var(--f-typewriter);font-size:.6rem;color:#3d2e18;background:rgba(0,0,0,.05);border:1px solid rgba(0,0,0,.1);border-radius:100px;padding:3px 9px;white-space:nowrap;}
-.proof-chip strong{color:#b91c1c;font-family:var(--f-ui);font-size:.72rem;font-weight:700;}
-
-/* ── ONBOARDING HINT ── */
+.intro-stat-n{font-family:var(--f-title);font-size:2.2rem;color:#f5a623;line-height:1;}
+.intro-stat-l{font-family:var(--f-typewriter);font-size:.58rem;color:rgba(255,220,140,.45);letter-spacing:.1em;text-transform:uppercase;margin-top:4px;}
+.intro-stat-div{width:1px;height:36px;background:rgba(255,200,80,.15);}
+.intro-loading{width:160px;height:2px;background:rgba(255,255,255,.08);border-radius:2px;margin-top:36px;overflow:hidden;}
+.intro-loading-bar{height:100%;width:0;background:linear-gradient(90deg,#b91c1c,#f5a623);border-radius:2px;transition:width linear;}
+.intro-open-label{font-family:var(--f-typewriter);font-size:.6rem;color:rgba(255,220,140,.3);letter-spacing:.12em;text-transform:uppercase;margin-top:10px;}
 .hint-bar{position:absolute;bottom:-36px;left:50%;transform:translateX(-50%);font-family:var(--f-typewriter);font-size:.62rem;color:rgba(255,220,140,.45);letter-spacing:.08em;white-space:nowrap;pointer-events:none;animation:hintBob 2.5s ease-in-out infinite;}
 @keyframes hintBob{0%,100%{opacity:.45;transform:translateX(-50%) translateY(0);}50%{opacity:.7;transform:translateX(-50%) translateY(-3px);}}
 
@@ -416,6 +399,635 @@ body.admin-mode .persist-bar{display:none;}
 
 /* ── PAPER DESC: use UI font for readability ── */
 .paper-desc{font-size:.88rem;color:#3a2e18;font-family:var(--f-ui);line-height:1.7;margin-bottom:18px;}
+
+
+/* ══ PHOTO GRID — even CSS grid, responsive, polaroid cells ══════════════ */
+
+/* Drop zone wrapper — full area of sh-body when dragging */
+.photo-drop-zone{
+  position:relative;
+  padding:20px 16px 32px;
+  min-height:200px;
+}
+.photo-drop-zone.drag-over::after{
+  content:'Drop photos here';
+  position:fixed;inset:0;
+  background:rgba(185,28,28,.18);
+  border:3px dashed rgba(185,28,28,.6);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--f-typewriter);font-size:1.2rem;letter-spacing:.1em;
+  color:rgba(185,28,28,.9);z-index:100;pointer-events:none;
+  border-radius:0;
+}
+
+/* Drop hint banner at top */
+.photo-drop-hint{
+  font-family:var(--f-typewriter);font-size:.62rem;
+  letter-spacing:.08em;text-transform:uppercase;
+  color:rgba(255,220,140,.35);
+  text-align:center;padding-bottom:14px;
+  display:none;
+}
+body.admin-mode .photo-drop-hint{display:block;}
+
+/* ══ PHOTO MASONRY GRID ═══════════════════════════════════════════════════
+   3 equal columns, JS places each card into the shortest column.
+   Cards are absolutely positioned — JS sets top/left after measuring.
+   The outer .photo-grid has a JS-set height.
+   ════════════════════════════════════════════════════════════════════════ */
+.photo-grid{
+  position:relative;   /* JS children are absolute inside */
+  width:100%;
+  /* height set by JS after layout */
+  padding:0;margin:0;
+}
+
+/* Each card: absolutely placed by JS */
+.photo-card{
+  position:absolute;
+  cursor:pointer;
+  transform:rotate(var(--card-rot,0deg));
+  transform-origin:center center;
+  transition:transform .22s cubic-bezier(.34,1.4,.64,1), z-index 0s;
+  z-index:1;
+  will-change:transform;
+}
+.photo-card:hover{
+  transform:rotate(0deg) scale(1.06) !important;
+  z-index:30 !important;
+}
+
+/* Polaroid shell */
+.photo-pol{
+  background:white;
+  padding:7px 7px 0 7px;
+  border:1px solid rgba(0,0,0,.08);
+  border-radius:2px;
+  box-shadow:3px 7px 22px rgba(0,0,0,.42),
+             0 1px 0 rgba(255,255,255,.55) inset;
+  display:inline-block;
+  line-height:0;  /* kills gap under img */
+}
+.photo-pol img{
+  display:block;
+  object-fit:cover;
+}
+
+/* Caption strip */
+.photo-pol-cap{
+  font-family:var(--f-handwritten);
+  font-size:.84rem;font-weight:700;
+  color:#2a1408;text-align:center;
+  padding:5px 4px 8px;
+  line-height:1.15;
+  display:block;
+  line-height:normal;
+}
+
+/* Tape — sits above the polaroid */
+.photo-card::before{
+  content:'';
+  position:absolute;
+  top:-11px;left:50%;
+  transform:translateX(-50%) rotate(var(--tape-rot,0deg));
+  width:50px;height:18px;
+  background:rgba(255,248,140,.75);
+  border:1px solid rgba(200,180,80,.38);
+  border-radius:1px;
+  z-index:3;pointer-events:none;
+}
+
+/* Admin actions */
+.photo-card .pc-acts{
+  display:none;
+  position:absolute;
+  top:5px;right:5px;
+  gap:3px;z-index:10;
+  flex-direction:column;
+}
+body.admin-mode .photo-card:hover .pc-acts{display:flex;}
+
+/* Add card placeholder */
+.photo-grid-add{
+  display:none;
+  position:absolute;   /* also placed by JS masonry */
+  flex-direction:column;align-items:center;justify-content:center;
+  gap:6px;cursor:pointer;
+  border:2px dashed rgba(255,255,255,.22);
+  border-radius:4px;
+  background:rgba(255,255,255,.04);
+  font-family:var(--f-typewriter);font-size:.6rem;
+  color:rgba(255,255,255,.35);
+  letter-spacing:.06em;text-transform:uppercase;
+  transition:all .2s;
+  width:130px;height:160px;  /* default; JS overrides */
+}
+.photo-grid-add:hover{
+  background:rgba(255,255,255,.1);
+  border-color:rgba(255,255,255,.4);
+  color:rgba(255,255,255,.65);
+}
+body.admin-mode .photo-grid-add{display:flex;}
+
+/* Dark sheet overrides */
+.sheet.sheet-photo .photo-pol{
+  box-shadow:4px 9px 30px rgba(0,0,0,.78),
+             0 1px 0 rgba(255,255,255,.5) inset;
+}
+.sheet.sheet-photo .photo-card::before{
+  background:rgba(255,248,140,.85);
+}
+
+/* Empty state */
+.photo-grid-empty-state{
+  font-family:var(--f-typewriter);font-size:.82rem;
+  color:rgba(255,220,140,.35);letter-spacing:.06em;
+  text-align:center;padding:50px 20px;
+  width:100%;
+}
+
+
+/* ── INLINE EDITING ── */
+[contenteditable]{outline:none;cursor:text;}
+body.admin-mode [contenteditable]:hover{
+  background:rgba(255,200,50,.12);
+  border-radius:3px;
+  box-shadow:0 0 0 1.5px rgba(185,28,28,.35);
+}
+body.admin-mode [contenteditable]:focus{
+  background:rgba(255,248,200,.25);
+  box-shadow:0 0 0 2px rgba(185,28,28,.55);
+  border-radius:3px;
+}
+.edit-hint{
+  display:none;
+  position:absolute;
+  top:-20px;
+  left:0;
+  font-family:var(--f-typewriter);
+  font-size:.52rem;
+  color:rgba(185,28,28,.7);
+  background:rgba(255,248,200,.9);
+  padding:2px 6px;
+  border-radius:3px;
+  white-space:nowrap;
+  pointer-events:none;
+  z-index:50;
+  letter-spacing:.04em;
+}
+body.admin-mode [contenteditable]:focus .edit-hint,
+body.admin-mode [contenteditable]:hover ~ .edit-hint{display:block;}
+
+/* Drag source */
+body.admin-mode .sc-item[draggable=true]{cursor:grab;}
+body.admin-mode .sc-item[draggable=true]:active{cursor:grabbing;}
+body.admin-mode .sc-item.drag-ghost{opacity:.4;}
+
+/* Drop zones on folders when dragging */
+body.admin-mode .fw.drop-active .folder{
+  box-shadow:0 0 0 3px #b91c1c, 5px 12px 30px rgba(0,0,0,.5);
+  transform:translateY(-4px) rotate(.2deg);
+}
+
+/* Inline edit save toast */
+.edit-toast{
+  position:fixed;
+  bottom:70px;
+  left:50%;
+  transform:translateX(-50%) translateY(10px);
+  background:#1a1a1a;
+  color:white;
+  font-family:var(--f-typewriter);
+  font-size:.68rem;
+  padding:7px 18px;
+  border-radius:100px;
+  opacity:0;
+  transition:all .3s;
+  z-index:8000;
+  pointer-events:none;
+  letter-spacing:.05em;
+}
+.edit-toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+
+body.admin-mode .fw.drop-target .folder{box-shadow:0 0 0 2px rgba(185,28,28,.35),5px 12px 30px rgba(0,0,0,.4);}
+body.admin-mode .fw.drop-active .folder{box-shadow:0 0 0 3px #b91c1c,5px 12px 30px rgba(0,0,0,.5);transform:translateY(-4px) rotate(.2deg);}
+
+
+/* ══ PERSIST BOTTOM BAR ══════════════════════════════════════════════════ */
+.persist-bar{
+  position:fixed;bottom:0;left:0;right:0;
+  z-index:600;
+  background:rgba(12,6,2,.95);
+  backdrop-filter:blur(16px);
+  border-top:1px solid rgba(255,180,80,.14);
+  padding:10px 20px;
+  display:flex;align-items:center;justify-content:center;
+  gap:10px;flex-wrap:wrap;
+}
+body.admin-mode .persist-bar{display:none;}
+.pb-btn{
+  display:inline-flex;align-items:center;gap:7px;
+  border:none;border-radius:100px;
+  padding:9px 20px;
+  font-family:var(--f-ui);font-size:.82rem;font-weight:600;
+  cursor:pointer;transition:all .18s;
+  white-space:nowrap;text-decoration:none;
+}
+.pb-cv{
+  background:#b91c1c;color:white;
+  box-shadow:0 2px 12px rgba(185,28,28,.4);
+}
+.pb-cv:hover{background:#991b1b;transform:translateY(-1px);}
+.pb-email{
+  background:rgba(247,240,222,.1);color:#f7f0de;
+  border:1px solid rgba(255,200,80,.18);
+}
+.pb-email:hover{background:rgba(247,240,222,.18);}
+.pb-wa{
+  background:rgba(37,211,102,.12);color:#25d366;
+  border:1px solid rgba(37,211,102,.22);
+}
+.pb-wa:hover{background:rgba(37,211,102,.22);}
+.pb-sep{width:1px;height:22px;background:rgba(255,200,80,.12);flex-shrink:0;}
+.pb-tagline{
+  font-family:var(--f-typewriter);
+  font-size:.64rem;color:rgba(255,220,140,.38);
+  letter-spacing:.06em;
+}
+@media(max-width:520px){
+  .pb-tagline,.pb-sep{display:none;}
+  .pb-btn{padding:9px 14px;font-size:.78rem;}
+}
+
+/* ══ PROOF CHIPS ═════════════════════════════════════════════════════════ */
+.proof-strip{
+  display:flex;gap:7px;flex-wrap:wrap;
+  margin-top:10px;padding-top:10px;
+  border-top:1px dashed rgba(0,0,0,.1);
+}
+.proof-chip{
+  display:inline-flex;align-items:center;gap:4px;
+  font-family:var(--f-typewriter);font-size:.6rem;
+  color:#5a4228;
+  background:rgba(0,0,0,.05);
+  border:1px solid rgba(0,0,0,.09);
+  border-radius:100px;padding:3px 10px;
+  white-space:nowrap;
+}
+.proof-chip strong{
+  font-family:var(--f-ui);font-size:.72rem;
+  font-weight:700;color:#b91c1c;
+}
+
+/* ══ NAME CARD & ROLE TABS — tighter + bolder ════════════════════════════ */
+.name-big{
+  font-family:var(--f-title);
+  font-size:clamp(1.7rem,4.5vw,3rem);
+  line-height:.95;color:#1a1008;letter-spacing:-.02em;
+}
+.name-big em{font-style:italic;color:#b91c1c;}
+.name-role{
+  font-family:var(--f-typewriter);
+  font-size:.72rem;color:#5a4228;margin-top:6px;
+  letter-spacing:.03em;line-height:1.4;
+}
+.open-stamp{
+  background:#b91c1c;color:white;
+  font-family:var(--f-typewriter);font-size:.58rem;
+  letter-spacing:.16em;padding:4px 10px;
+  transform:rotate(-7deg);
+  border:2px solid #7f1d1d;text-transform:uppercase;
+  box-shadow:1px 2px 6px rgba(0,0,0,.4);
+  white-space:nowrap;
+}
+.cline{font-family:var(--f-typewriter);font-size:.68rem;color:#3d2e18;margin-bottom:2px;}
+.cline a{color:#b91c1c;text-decoration:none;}
+.cline a:hover{text-decoration:underline;}
+.nc-right{display:flex;flex-direction:column;align-items:flex-end;gap:1px;}
+
+/* ══ POLAROID GRID — FIXED LANDSCAPE SIZING ══════════════════════════════ */
+/* Remove CSS width/height from img — JS sets dimStyle inline.
+   The fix: use display:block on the polaroid and make the img 
+   the single source of truth for sizing. */
+.photo-pol{
+  background:white;
+  border:1px solid rgba(0,0,0,.1);
+  border-radius:2px;
+  box-shadow:3px 6px 18px rgba(0,0,0,.35),0 1px 0 rgba(255,255,255,.6) inset;
+  display:inline-block; /* shrink-wrap to content */
+  vertical-align:bottom;
+}
+.photo-pol img{
+  display:block;
+  object-fit:cover;
+}
+/* All orientations: same padding, img size set inline in JS */
+.photo-pol.portrait{padding:7px 7px 0 7px;}
+.photo-pol.landscape{padding:7px 7px 0 7px;}
+.photo-pol.square{padding:7px 7px 0 7px;}
+/* Caption sits INSIDE the white area below the image */
+.photo-pol-cap{
+  font-family:var(--f-handwritten);
+  font-size:.82rem;font-weight:700;
+  color:#2a1408;text-align:center;
+  padding:5px 6px 7px;
+  line-height:1.2;min-height:28px;
+  display:block;
+}
+/* Portrait taller caption area */
+.photo-pol.portrait .photo-pol-cap{padding:5px 6px 8px;}
+/* Landscape stays compact */
+.photo-pol.landscape .photo-pol-cap{padding:4px 6px 7px;font-size:.76rem;}
+
+/* ══ SECTION DIVIDER ═════════════════════════════════════════════════════ */
+.sec-txt{
+  font-family:var(--f-typewriter);
+  font-size:.65rem;color:rgba(0,0,0,.34);
+  letter-spacing:.14em;text-transform:uppercase;white-space:nowrap;
+}
+.sec-line{flex:1;height:1px;background:rgba(0,0,0,.18);}
+
+/* ══ SHEET HEADER ════════════════════════════════════════════════════════ */
+.sh-title{font-family:var(--f-title);font-size:1.25rem;color:#1a1008;line-height:1.1;}
+.sh-sub{font-size:.71rem;color:#6d5a40;margin-top:2px;font-family:var(--f-typewriter);letter-spacing:.03em;}
+.sh-hd{
+  padding:14px 20px 12px 64px;
+  border-bottom:2px solid rgba(0,0,0,.1);
+  display:flex;align-items:center;justify-content:space-between;flex-shrink:0;
+  position:relative;z-index:5;
+  background:rgba(245,237,218,.95);
+}
+
+/* ══ PAPER MODAL ═════════════════════════════════════════════════════════ */
+.paper-title{font-family:var(--f-title);font-size:1.5rem;color:#1a1008;margin-bottom:4px;line-height:1.1;}
+.paper-meta{font-size:.76rem;color:#6d5a40;font-family:var(--f-typewriter);letter-spacing:.04em;margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid rgba(0,0,0,.1);}
+.paper-desc{font-size:.88rem;color:#3a2e18;font-family:var(--f-ui);line-height:1.7;margin-bottom:16px;}
+.paper-link{
+  display:inline-flex;align-items:center;gap:6px;
+  background:#b91c1c;color:white;border-radius:100px;
+  padding:9px 20px;font-size:.84rem;font-weight:600;
+  text-decoration:none;transition:all .2s;
+  font-family:var(--f-ui);
+}
+.paper-link:hover{background:#991b1b;}
+
+/* ══ RESUME SECTION STYLES ═══════════════════════════════════════════════ */
+.res-sec-title{
+  font-family:var(--f-typewriter);font-size:.7rem;
+  text-transform:uppercase;letter-spacing:.14em;color:#6d5a40;
+  border-bottom:1px solid rgba(0,0,0,.13);
+  padding-bottom:4px;margin-bottom:10px;
+}
+.re-title{font-size:.88rem;font-weight:700;color:#1a1008;font-family:var(--f-ui);}
+.re-date{font-size:.72rem;color:#6d5a40;white-space:nowrap;font-family:var(--f-typewriter);}
+.re-sub{font-size:.78rem;color:#3d2e18;font-family:var(--f-typewriter);margin-top:2px;}
+.re-desc{font-size:.79rem;color:#3d2e18;font-family:var(--f-ui);line-height:1.6;margin-top:5px;}
+.re-hd{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;}
+.res-entry{margin-bottom:14px;}
+.res-sec{margin-bottom:20px;}
+.sk-grid{display:flex;flex-wrap:wrap;gap:6px;}
+.sk-chip{
+  background:rgba(0,0,0,.06);border:1px solid rgba(0,0,0,.1);
+  border-radius:100px;padding:4px 11px;
+  font-size:.72rem;color:#3d2e18;
+  font-family:var(--f-typewriter);
+}
+
+/* ══ SHEET ITEM LIST ═════════════════════════════════════════════════════ */
+.shi{
+  background-color:#faf4e6;
+  border-radius:2px;padding:11px 14px;
+  margin-bottom:7px;
+  display:flex;align-items:center;gap:11px;cursor:pointer;
+  border:1px solid rgba(180,150,80,.22);
+  transition:transform .15s,box-shadow .15s;
+  box-shadow:1px 2px 6px rgba(0,0,0,.1),0 1px 0 rgba(255,255,255,.55) inset;
+  position:relative;z-index:1;pointer-events:auto;
+}
+.shi:hover{transform:translateX(4px);box-shadow:3px 4px 14px rgba(0,0,0,.18);}
+.shi-title{font-size:.9rem;font-weight:600;color:#1c1c1e;font-family:var(--f-ui);margin-bottom:2px;line-height:1.3;}
+.shi-meta{font-size:.71rem;color:#6d6d72;font-family:var(--f-typewriter);line-height:1.4;}
+.shi-badge{font-size:.6rem;font-weight:700;padding:3px 8px;border-radius:100px;text-transform:uppercase;letter-spacing:.04em;font-family:var(--f-ui);}
+.shi-badge.green{background:rgba(22,101,52,.12);color:#166534;}
+.shi-badge.blue{background:rgba(30,64,175,.1);color:#1e40af;}
+.shi-badge.orange{background:rgba(146,64,14,.12);color:#92400e;}
+.shi-badge.purple{background:rgba(107,33,168,.1);color:#6b21a8;}
+.shi-badge.red{background:rgba(153,27,27,.1);color:#991b1b;}
+.shi-chev{color:#c7c7cc;font-size:.8rem;}
+.shi-img{width:52px;height:52px;border-radius:8px;object-fit:cover;border:1.5px solid rgba(0,0,0,.07);flex-shrink:0;}
+.shi-txt{flex:1;min-width:0;}
+.shi-right{display:flex;align-items:center;gap:6px;flex-shrink:0;align-self:center;}
+.shi-acts{display:none;gap:5px;}
+body.admin-mode .shi-acts{display:flex;}
+body.admin-mode .shi-chev{display:none;}
+.sa{width:26px;height:26px;border-radius:8px;border:none;font-size:.7rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s;}
+.sa.e{background:rgba(0,122,255,.1);color:#007aff;}
+.sa.d{background:rgba(185,28,28,.1);color:#b91c1c;}
+.sh-empty{text-align:center;padding:40px 20px;color:#8e8e93;font-family:var(--f-typewriter);}
+
+/* ══ FOLDER SLIP TEXT ════════════════════════════════════════════════════ */
+.slip-txt{font-family:var(--f-typewriter);font-size:.65rem;color:#3d2e18;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.slip-badge{font-family:var(--f-ui);font-size:.52rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:2px 7px;border-radius:100px;flex-shrink:0;}
+.slip-badge.green{background:rgba(22,101,52,.16);color:#166534;}
+.slip-badge.blue{background:rgba(30,64,175,.12);color:#1e40af;}
+.slip-badge.orange{background:rgba(146,64,14,.16);color:#92400e;}
+.slip-badge.purple{background:rgba(107,33,168,.12);color:#6b21a8;}
+.slip-badge.red{background:rgba(153,27,27,.12);color:#991b1b;}
+
+/* ══ ADMIN BAR ═══════════════════════════════════════════════════════════ */
+.admin-bar{
+  display:none;position:fixed;bottom:0;left:0;right:0;
+  background:rgba(0,0,0,.92);backdrop-filter:blur(10px);
+  border-top:1px solid rgba(0,122,255,.3);
+  padding:8px 20px;z-index:700;
+  align-items:center;justify-content:center;gap:14px;
+}
+body.admin-mode .admin-bar{display:flex;}
+.ab-dot{width:7px;height:7px;border-radius:50%;background:#34c759;box-shadow:0 0 7px #34c759;animation:pulse 2s infinite;}
+.ab-txt{font-family:var(--f-ui);font-size:.73rem;color:rgba(255,255,255,.7);}
+.ab-exit{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);color:rgba(255,255,255,.8);font-family:var(--f-ui);font-size:.7rem;padding:5px 14px;border-radius:100px;cursor:pointer;}
+.ab-photos{background:rgba(0,122,255,.22);border:1px solid rgba(0,122,255,.4);color:rgba(255,255,255,.88);font-family:var(--f-ui);font-size:.7rem;padding:5px 14px;border-radius:100px;cursor:pointer;}
+
+/* ══ FORM MODAL ══════════════════════════════════════════════════════════ */
+.fi,.fsel,.fta{
+  width:100%;
+  background:rgba(255,255,255,.75);
+  border:1.5px solid rgba(0,0,0,.13);
+  border-radius:6px;padding:8px 10px;
+  font-family:var(--f-ui);font-size:.86rem;color:#1a1008;
+  outline:none;transition:border-color .2s,box-shadow .2s;
+}
+.fi:focus,.fsel:focus,.fta:focus{
+  border-color:#b91c1c;box-shadow:0 0 0 3px rgba(185,28,28,.1);
+}
+.fta{height:78px;resize:vertical;}
+.fl{
+  display:block;font-size:.67rem;font-weight:600;
+  text-transform:uppercase;letter-spacing:.07em;
+  color:#6d5a40;margin-bottom:4px;
+  font-family:var(--f-typewriter);
+}
+.btn-save{flex:1;background:#b91c1c;color:white;border:none;border-radius:100px;padding:10px;font-family:var(--f-ui);font-size:.88rem;font-weight:600;cursor:pointer;}
+.btn-save:hover{background:#991b1b;}
+.btn-cancel{background:rgba(0,0,0,.06);color:#3d2e18;border:none;border-radius:100px;padding:10px 16px;font-family:var(--f-ui);font-size:.88rem;font-weight:500;cursor:pointer;}
+
+
+/* ══ PHOTO FOLDER CARD PREVIEW ════════════════════════════════════════════ */
+/* ══ PHOTO FOLDER CARD — mini polaroid scatter preview ═════════════════ */
+.folder-photo-preview{
+  position:relative;
+  height:118px;
+  overflow:visible;
+  margin:4px 0 0;
+}
+.fp-card{
+  position:absolute;
+  background:white;
+  padding:4px 4px 0;          /* img + caption below */
+  border:1px solid rgba(0,0,0,.1);
+  border-radius:2px;
+  box-shadow:2px 5px 12px rgba(0,0,0,.5),0 1px 0 rgba(255,255,255,.45) inset;
+  transition:transform .2s;cursor:pointer;
+}
+/* caption strip */
+.fp-card-cap{
+  font-family:var(--f-handwritten);font-size:.5rem;
+  color:#2a1408;text-align:center;
+  padding:2px 3px 3px;line-height:1;
+  display:block;min-height:14px;
+}
+/* tape */
+.fp-card::before{
+  content:'';position:absolute;top:-7px;left:50%;
+  transform:translateX(-50%) rotate(var(--fp-tape,0deg));
+  width:26px;height:11px;
+  background:rgba(255,248,140,.75);
+  border:1px solid rgba(200,180,80,.35);
+  border-radius:1px;pointer-events:none;z-index:3;
+}
+.fp-card:hover{transform:rotate(0deg) scale(1.1) !important;z-index:20;}
+
+/* Static stagger positions — 6 cards fanned */
+.fp-card:nth-child(1){bottom:10px;left:4px;  transform:rotate(-6deg); --fp-tape:-2deg;}
+.fp-card:nth-child(2){bottom:6px; left:32px; transform:rotate(3deg);  --fp-tape:1.5deg;}
+.fp-card:nth-child(3){bottom:12px;left:60px; transform:rotate(-2deg); --fp-tape:-1deg;}
+.fp-card:nth-child(4){bottom:4px; left:84px; transform:rotate(5deg);  --fp-tape:2deg;}
+.fp-card:nth-child(5){bottom:9px; left:112px;transform:rotate(-4deg); --fp-tape:-1.5deg;}
+.fp-card:nth-child(6){bottom:6px; right:4px; transform:rotate(2deg);  --fp-tape:1deg;}
+
+.fp-count{
+  position:absolute;bottom:0;right:4px;
+  font-family:var(--f-typewriter);font-size:.52rem;
+  color:rgba(255,255,255,.5);letter-spacing:.06em;
+  background:rgba(0,0,0,.35);padding:2px 7px;border-radius:100px;
+}
+.folder-photo-empty{
+  font-family:var(--f-typewriter);font-size:.6rem;
+  color:rgba(255,255,255,.35);
+  text-align:center;padding:30px 0 10px;
+  letter-spacing:.04em;
+}
+
+/* ══ PHOTO SHEET — dark filmstrip skin ════════════════════════════════════ */
+/* Applied when data-fid is photography or events */
+.sheet.sheet-photo{
+  background-color:#1a1410;
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0,transparent 28px,
+      rgba(255,255,255,.025) 28px,rgba(255,255,255,.025) 29px
+    );
+  box-shadow:0 -8px 48px rgba(0,0,0,.7),0 -1px 0 rgba(80,60,30,.5);
+}
+/* Remove the red margin line on photo sheet */
+.sheet.sheet-photo::before{display:none;}
+
+/* Photo sheet header */
+.sheet.sheet-photo .sh-hd{
+  background:rgba(10,8,6,.85);
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.sheet.sheet-photo .sh-title{color:#f0e8d8;}
+.sheet.sheet-photo .sh-sub{color:rgba(255,220,140,.5);}
+.sheet.sheet-photo .sh-rings .sh-ring{
+  background:rgba(255,255,255,.06);
+  border-color:rgba(255,255,255,.1);
+}
+.sheet.sheet-photo .sh-handle{background:rgba(255,255,255,.15);}
+
+/* Photo sheet folder tab */
+.sheet.sheet-photo .sheet-folder-tab-el{
+  background:linear-gradient(165deg,#2a2218,#1a160e);
+  color:rgba(255,220,140,.7);
+  border-color:rgba(255,180,60,.15);
+}
+
+/* Photo sheet body — dark with subtle grain */
+.sheet.sheet-photo .sh-body{
+  background-color:#1a1410;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+}
+
+/* Close button on photo sheet */
+.sheet.sheet-photo .sh-close{
+  background:rgba(255,255,255,.1);
+  border-color:rgba(255,255,255,.15);
+  color:rgba(255,255,255,.7);
+}
+.sheet.sheet-photo .sh-add{
+  background:rgba(185,28,28,.8);
+}
+
+/* Hole punches on dark sheet */
+.sheet.sheet-photo .sh-ring{
+  background:rgba(255,255,255,.05);
+  border-color:rgba(255,255,255,.1);
+  box-shadow:inset 0 1px 3px rgba(0,0,0,.5);
+}
+
+/* Film strip decorative notches at top of photo sheet */
+.sheet.sheet-photo .sh-handle::before{
+  content:'';
+  display:block;
+  position:absolute;
+  top:0;left:0;right:0;height:1px;
+  background:repeating-linear-gradient(
+    90deg,
+    transparent 0,transparent 18px,
+    rgba(255,220,100,.15) 18px,rgba(255,220,100,.15) 22px
+  );
+}
+
+/* Photo grid on dark background */
+.sheet.sheet-photo .photo-grid{
+  background:transparent;
+  padding:20px 16px 40px;
+  gap:0;
+}
+
+/* Polaroids pop more on dark bg */
+.sheet.sheet-photo .photo-pol{
+  box-shadow:4px 8px 24px rgba(0,0,0,.7),0 1px 0 rgba(255,255,255,.5) inset;
+}
+
+/* Tape is more visible on dark bg */
+.sheet.sheet-photo .photo-card::before{
+  background:rgba(255,248,140,.8);
+  border-color:rgba(200,180,80,.4);
+}
+
+/* Photo count badge */
+.sheet-photo-count{
+  font-family:var(--f-typewriter);
+  font-size:.62rem;
+  color:rgba(255,220,140,.4);
+  letter-spacing:.1em;
+  text-align:center;
+  padding:8px 0 0;
+}
 
 </style>
 </head>
@@ -514,18 +1126,34 @@ body.admin-mode .persist-bar{display:none;}
 </div>
 </div>
 
-<!-- INTRO OVERLAY -->
+<!-- INTRO SPLASH — no buttons, pure animation, auto-dismisses -->
 <div class="intro-overlay" id="introOverlay">
-  <div class="intro-name">Sogi<em>buchukwu</em><br>Azuwa</div>
-  <div class="intro-tagline">Marketing &middot; Web Development &middot; Design &middot; Windhoek</div>
-  <div class="intro-sub">I build products, design brands, and grow audiences — currently open to junior marketing &amp; web roles in Namibia.</div>
-  <div class="intro-stats">
-    <div class="intro-stat"><div class="intro-stat-n">3</div><div class="intro-stat-l">Live Products</div></div>
-    <div class="intro-stat"><div class="intro-stat-n">2</div><div class="intro-stat-l">Events Run</div></div>
-    <div class="intro-stat"><div class="intro-stat-n">80+</div><div class="intro-stat-l">Tickets Sold</div></div>
+  <div class="intro-inner">
+    <div class="intro-eyebrow">Portfolio &mdash; Windhoek, Namibia</div>
+    <div class="intro-name">Sogi<em>buchukwu</em><br>Azuwa</div>
+    <div class="intro-rule"></div>
+    <div class="intro-tagline">Marketing &middot; Web Development &middot; Design</div>
+    <div class="intro-stats">
+      <div class="intro-stat">
+        <div class="intro-stat-n">3</div>
+        <div class="intro-stat-l">Live Products</div>
+      </div>
+      <div class="intro-stat-div"></div>
+      <div class="intro-stat">
+        <div class="intro-stat-n">80+</div>
+        <div class="intro-stat-l">Tickets Sold</div>
+      </div>
+      <div class="intro-stat-div"></div>
+      <div class="intro-stat">
+        <div class="intro-stat-n">2</div>
+        <div class="intro-stat-l">Events Founded</div>
+      </div>
+    </div>
+    <div class="intro-loading">
+      <div class="intro-loading-bar" id="introBar"></div>
+    </div>
+    <div class="intro-open-label">Opening portfolio&hellip;</div>
   </div>
-  <button class="intro-cta" onclick="dismissIntro()">Explore My Portfolio &rarr;</button>
-  <button class="intro-skip" onclick="dismissIntro()">skip</button>
 </div>
 
 <!-- PERSISTENT BOTTOM BAR -->
@@ -669,9 +1297,9 @@ body.admin-mode .persist-bar{display:none;}
 <div class="lb-bd" id="lbBd" onclick="if(event.target===this)closeLb()">
   <div class="lb-content" id="lbContent"></div>
   <div class="lb-controls">
-    <button class="lb-arrow" onclick="lbNav(-1)">&#8249;</button>
+    <button class="lb-arrow lb-prev" onclick="lbNav(-1)">&#8249;</button>
     <span class="lb-counter" id="lbCounter"></span>
-    <button class="lb-arrow" onclick="lbNav(1)">&#8250;</button>
+    <button class="lb-arrow lb-next" onclick="lbNav(1)">&#8250;</button>
     <button class="lb-close" onclick="closeLb()">Close</button>
   </div>
 </div>
@@ -822,6 +1450,20 @@ function buildFolder(def){
   const wrap=document.createElement('div');
   wrap.className='fw';wrap.dataset.fid=def.id;
   wrap.onclick=()=>openSheet(def.id);
+  // Drop zone for sc-items dragged from board
+  wrap.addEventListener('dragover',e=>{e.preventDefault();wrap.classList.add('drop-active');});
+  wrap.addEventListener('dragleave',()=>wrap.classList.remove('drop-active'));
+  wrap.addEventListener('drop',e=>{
+    e.preventDefault();wrap.classList.remove('drop-active');
+    const sid=e.dataTransfer.getData('scid');
+    if(!sid)return;
+    const scItem=sc.find(s=>s.id===sid);
+    if(!scItem)return;
+    // Move to this folder, keep corner as tr by default
+    scItem.folder=def.id;
+    scItem.corner='tr';
+    saveSc();renderSc();drawStrings();showToast('Moved to '+def.name);
+  });
   const pc=Math.min(def.peeks,Math.max(2,items.length+1));
   let peeks='<div class="docs-peek">';
   for(let i=0;i<pc;i++)peeks+=`<div class="pd"></div>`;
@@ -830,30 +1472,65 @@ function buildFolder(def){
   if(def.id==='resume'){
     body+=`<div class="res-prev"><div class="rp-name">Sogibuchukwu Azuwa</div><div class="rp-line" style="width:78%"></div><div class="rp-line" style="width:62%"></div><div class="rp-line" style="width:88%"></div><div class="rp-line" style="width:55%"></div></div>`;
   }
-  const imgItems=items.filter(i=>i.imgKey&&getImg(i.imgKey));
-  if(imgItems.length){
-    body+='<div class="thumb-row">';
-    imgItems.slice(0,2).forEach(i=>{body+=`<img class="thumb" src="${getImg(i.imgKey)}" alt="">`;});
+  const isPhotoFolder=PHOTO_FOLDERS&&PHOTO_FOLDERS.includes(def.id);
+  if(isPhotoFolder){
+    // ── Mini polaroid scatter preview for photo folders ──
+    const photoItems=items.slice(0,6);
+    const previewRots=[-5,3,-2,6,-4,2];
+    body+='<div class="folder-photo-preview">';
+    if(!photoItems.length){
+      body+='<div class="folder-photo-empty">📷 Drop photos to get started</div>';
+    } else {
+      // portrait/landscape/square for mini cards
+      const FP_SIZES=[{w:42,h:54},{w:60,h:38},{w:46,h:46},{w:42,h:54},{w:60,h:38},{w:46,h:46}];
+      photoItems.forEach((item,i)=>{
+        const src=(item.imgKey&&getImg(item.imgKey))?getImg(item.imgKey):item.img;
+        const sz=FP_SIZES[i%FP_SIZES.length];
+        const cap=(item.title||'').slice(0,14);
+        body+='<div class="fp-card" style="z-index:'+(6-i)+';">';
+        if(src){
+          body+='<img src="'+src+'" width="'+sz.w+'" height="'+sz.h+'" style="width:'+sz.w+'px;height:'+sz.h+'px;object-fit:cover;display:block;">';
+        } else {
+          body+='<div style="width:'+sz.w+'px;height:'+sz.h+'px;background:linear-gradient(135deg,#c8b89a,#b0a082);display:flex;align-items:center;justify-content:center;font-size:1rem;">📷</div>';
+        }
+        body+='<span class="fp-card-cap">'+cap+'</span>';
+        body+='</div>';
+      });
+      body+='<div class="fp-count">'+items.length+' shot'+(items.length!==1?'s':'')+'</div>';
+    }
     body+='</div>';
+  } else {
+    const imgItems=items.filter(i=>i.imgKey&&getImg(i.imgKey));
+    if(imgItems.length){
+      body+='<div class="thumb-row">';
+      imgItems.slice(0,2).forEach(i=>{body+=`<img class="thumb" src="${getImg(i.imgKey)}" alt="">`;});
+      body+='</div>';
+    }
+    items.filter(i=>!(i.imgKey&&getImg(i.imgKey))).slice(0,3).forEach(item=>{
+      const badge=item.badge?`<span class="slip-badge ${item.badgeColor}">${item.badge}</span>`:'';
+      body+=`<div class="slip" style="background:${slipBg(def.id)}" onclick="event.stopPropagation();handleSlip(${item.id},'${def.id}')">
+        ${mkIcon(item.icon,26)}
+        <span class="slip-txt" style="pointer-events:none;">${item.title}</span>${badge}
+        <div class="slip-acts">
+          <button class="sact e" onclick="event.stopPropagation();currentFolder='${def.id}';openFolderForm(${item.id})">&#9999;</button>
+          <button class="sact d" onclick="event.stopPropagation();currentFolder='${def.id}';delItem(${item.id})">&#10005;</button>
+        </div></div>`;
+    });
   }
-  items.filter(i=>!(i.imgKey&&getImg(i.imgKey))).slice(0,3).forEach(item=>{
-    const badge=item.badge?`<span class="slip-badge ${item.badgeColor}">${item.badge}</span>`:'';
-    body+=`<div class="slip" style="background:${slipBg(def.id)}" onclick="event.stopPropagation();handleSlip(${item.id},'${def.id}')">
-      ${mkIcon(item.icon,26)}
-      <span class="slip-txt" style="pointer-events:none;">${item.title}</span>${badge}
-      <div class="slip-acts">
-        <button class="sact e" onclick="event.stopPropagation();currentFolder='${def.id}';openFolderForm(${item.id})">&#9999;</button>
-        <button class="sact d" onclick="event.stopPropagation();currentFolder='${def.id}';delItem(${item.id})">&#10005;</button>
-      </div></div>`;
-  });
+  const photoFolderHeader = isPhotoFolder
+    ? `<div class="folder-id folder-id-photo">
+        <span class="folder-nm" style="font-size:.75rem;color:rgba(255,255,255,.8);">📷 ${def.name}</span>
+        <span class="folder-ct" style="color:rgba(255,255,255,.45);">${items.length} shots</span>
+       </div>`
+    : `<div class="folder-id">
+        <span class="folder-nm">${mkIcon(def.icon,24)} ${def.name}</span>
+        <span class="folder-ct">${items.length} files</span>
+       </div>`;
   wrap.innerHTML=`${peeks}
     <div class="folder fc-${def.color}">
       <div class="folder-tab">${def.name}</div>${clipSvg()}
       <div class="folder-face"><div class="folder-inner">
-        <div class="folder-id">
-          <span class="folder-nm">${mkIcon(def.icon,24)} ${def.name}</span>
-          <span class="folder-ct">${items.length} files</span>
-        </div>
+        ${photoFolderHeader}
         <div class="folder-contents">${body}</div>
         <button class="fold-add" onclick="event.stopPropagation();currentFolder='${def.id}';openFolderForm(null)">&#65291; Add to ${def.name}</button>
       </div></div>
@@ -879,26 +1556,54 @@ function buildScEl(item,si,total,groupKey){
   const wrap=document.createElement('div');
   wrap.className='sc-item';wrap.dataset.scid=item.id;wrap.dataset.gkey=groupKey;
   const off=si*5;
-  wrap.style.cssText=`position:absolute;transform:rotate(${item.rot+si*1.2}deg) translate(${off}px,${-off}px);z-index:${item.zFront?11:3};`;
+  wrap.style.cssText='position:absolute;transform:rotate('+(item.rot+si*1.2)+'deg) translate('+off+'px,'+(-off)+'px);z-index:'+(item.zFront?11:3)+';';
+
+  // Draggable in admin mode
+  wrap.setAttribute('draggable', isAdmin?'true':'false');
+  wrap.addEventListener('dragstart',e=>{
+    if(!isAdmin)return;
+    e.dataTransfer.setData('scid',item.id);
+    wrap.classList.add('drag-ghost');
+    // Highlight all folder drop zones
+    document.querySelectorAll('.fw[data-fid]').forEach(fw=>fw.classList.add('drop-target'));
+  });
+  wrap.addEventListener('dragend',()=>{
+    wrap.classList.remove('drag-ghost');
+    document.querySelectorAll('.fw.drop-target').forEach(fw=>{fw.classList.remove('drop-target');fw.classList.remove('drop-active');});
+  });
+
   let html='';
   if(item.type==='polaroid'){
     const src=(item.imgKey&&getImg(item.imgKey))?getImg(item.imgKey):(item.img||'');
-    const imgHtml=src?`<img class="pol-img" src="${src}" alt="">`:`<div class="pol-placeholder">&#128247;</div>`;
-    html=`<div class="polaroid" style="position:relative;">${imgHtml}
-      ${total>1&&si===total-1?`<span class="sc-stack-badge">${total}</span>`:''}
-      <div class="pol-caption">${item.caption||''}</div></div>`;
+    const imgHtml=src?('<img class="pol-img" src="'+src+'" alt="">'):'<div class="pol-placeholder">&#128247;</div>';
+    html='<div class="polaroid" style="position:relative;">'+imgHtml+
+      (total>1&&si===total-1?('<span class="sc-stack-badge">'+total+'</span>'):'') +
+      '<div class="pol-caption"'+(isAdmin?' contenteditable="true" data-sfield="caption" data-scid="'+item.id+'"':'')+'>'+( item.caption||'' )+'</div></div>';
   } else {
-    html=`<div class="sticky-note ${item.color||'sn-y'}" style="position:relative;">${item.text||''}
-      ${total>1&&si===total-1?`<span class="sc-stack-badge">${total}</span>`:''}
-    </div>`;
+    html='<div class="sticky-note '+(item.color||'sn-y')+'" style="position:relative;"'+
+      (isAdmin?' contenteditable="true" data-sfield="text" data-scid="'+item.id+'"':'')+'>'+
+      (item.text||'')+
+      (total>1&&si===total-1?('<span class="sc-stack-badge">'+total+'</span>'):'') +
+      '</div>';
   }
-  html+=`<div class="sc-edit-btns">
-    <button class="sc-eb e" onclick="event.stopPropagation();openScForm('${item.id}')">&#9999;</button>
-    <button class="sc-eb d" onclick="event.stopPropagation();delSc('${item.id}')">&#10005;</button>
-  </div>`;
+  html+='<div class="sc-edit-btns"><button class="sc-eb e" onclick="event.stopPropagation();openScForm(\'' + item.id + '\')" >&#9999;</button><button class="sc-eb d" onclick="event.stopPropagation();delSc(\'' + item.id + '\')" >&#10005;</button></div>';
   wrap.innerHTML=html;
+
+  // Inline edit on sc-items (sticky text, polaroid caption)
+  wrap.querySelectorAll('[contenteditable]').forEach(el=>{
+    el.addEventListener('blur',()=>{
+      const sid=el.dataset.scid,field=el.dataset.sfield;
+      const scItem=sc.find(s=>s.id===sid);
+      if(scItem&&field){scItem[field]=el.innerText.trim();saveSc();showToast('Saved');}
+    });
+    el.addEventListener('keydown',e=>{if(e.key==='Enter'&&el.tagName!=='TEXTAREA'){e.preventDefault();el.blur();}});
+    el.addEventListener('click',e=>{if(isAdmin)e.stopPropagation();}); // prevent lightbox
+  });
+
+  // Click = lightbox (only if not editing)
   wrap.addEventListener('click',e=>{
     if(e.target.closest('.sc-edit-btns'))return;
+    if(e.target.isContentEditable)return;
     e.stopPropagation();
     openLb(groupKey,item.id);
   });
@@ -935,27 +1640,69 @@ function positionSc(){
   });
 }
 
+// ── LIGHTBOX: two modes ──
+// 1. openLb(groupKey, activeId)  → for cork board sc-items (stacks)
+// 2. openGalleryLb(fid, activeId) → for photography / events full folder gallery
+
+let lbMode='sc'; // 'sc' | 'gallery'
+let lbFid='';    // used in gallery mode
+
 function openLb(groupKey,activeId){
+  lbMode='sc';
   const group=sc.filter(s=>`${s.folder}-${s.corner}`===groupKey);
   if(!group.length)return;
   lbGroup=group;lbIdx=Math.max(0,group.findIndex(s=>s.id===activeId));
   renderLb();
   document.getElementById('lbBd').classList.add('open');
 }
+
+function openGalleryLb(fid,activeId){
+  lbMode='gallery';lbFid=fid;
+  const items=(data[fid]||[]).filter(item=>{
+    const src=(item.imgKey&&getImg(item.imgKey))?getImg(item.imgKey):item.img;
+    return !!src;
+  });
+  if(!items.length)return;
+  lbGroup=items;
+  lbIdx=Math.max(0,items.findIndex(x=>x.id===activeId));
+  if(lbIdx<0)lbIdx=0;
+  renderLb();
+  document.getElementById('lbBd').classList.add('open');
+}
+
 function renderLb(){
   const item=lbGroup[lbIdx];if(!item)return;
   let html='';
-  if(item.type==='polaroid'){
+  if(lbMode==='gallery'){
+    const src=(item.imgKey&&getImg(item.imgKey))?getImg(item.imgKey):item.img;
+    const orient=PHOTO_ORIENTATIONS[lbIdx%PHOTO_ORIENTATIONS.length];
+    const lbDims=orient==='portrait'?{w:'min(55vw,280px)',h:'auto'}:orient==='landscape'?{w:'min(80vw,480px)',h:'auto'}:{w:'min(60vw,320px)',h:'auto'};
+    html=`<div class="photo-pol ${orient}" style="padding:10px 10px 0;box-shadow:6px 10px 40px rgba(0,0,0,.7);transform:rotate(${CARD_ROTS[lbIdx%CARD_ROTS.length]*0.4}deg);">
+      <img src="${src}" alt="${item.title}" style="width:${lbDims.w};height:${lbDims.h};max-height:65vh;object-fit:cover;display:block;">
+      <div class="photo-pol-cap" style="font-size:1.05rem;padding:8px 8px 4px;">${item.title||''}</div>
+      ${item.meta?`<div style="font-family:var(--f-typewriter);font-size:.68rem;color:#a08060;text-align:center;padding-bottom:4px;">${item.meta}</div>`:''}
+    </div>`;
+  } else if(item.type==='polaroid'){
     const src=(item.imgKey&&getImg(item.imgKey))?getImg(item.imgKey):(item.img||'');
-    if(src)html=`<div class="polaroid" style="width:260px;transform:rotate(${item.rot}deg);"><img style="width:100%;height:auto;max-height:340px;object-fit:contain;" src="${src}" alt=""><div class="pol-caption" style="font-size:.85rem;margin-top:8px;">${item.caption||''}</div></div>`;
+    if(src)html=`<div class="polaroid" style="width:260px;transform:rotate(${item.rot}deg);"><img style="width:100%;height:auto;max-height:340px;object-fit:contain;" src="${src}" alt=""><div class="pol-caption" style="font-size:1rem;font-weight:700;margin-top:8px;">${item.caption||''}</div></div>`;
     else html=`<div style="color:white;font-size:3rem;">&#128247;</div>`;
   } else {
-    html=`<div class="sticky-note ${item.color||'sn-y'}" style="width:220px;transform:rotate(${item.rot}deg);font-size:.95rem;padding:18px 20px 14px;">${item.text||''}</div>`;
+    html=`<div class="sticky-note ${item.color||'sn-y'}" style="width:220px;transform:rotate(${item.rot}deg);font-size:1rem;padding:18px 20px 14px;">${item.text||''}</div>`;
   }
   document.getElementById('lbContent').innerHTML=html;
-  document.getElementById('lbCounter').textContent=lbGroup.length>1?`${lbIdx+1} of ${lbGroup.length}`:'';
+  const total=lbGroup.length;
+  document.getElementById('lbCounter').textContent=total>1?`${lbIdx+1} / ${total}`:'';
+  // Show/hide arrows
+  const prev=document.querySelector('.lb-arrow.lb-prev');
+  const next=document.querySelector('.lb-arrow.lb-next');
+  if(prev)prev.style.opacity=lbIdx>0?'1':'0.25';
+  if(next)next.style.opacity=lbIdx<total-1?'1':'0.25';
 }
-function lbNav(dir){lbIdx=Math.max(0,Math.min(lbGroup.length-1,lbIdx+dir));renderLb();}
+
+function lbNav(dir){
+  lbIdx=Math.max(0,Math.min(lbGroup.length-1,lbIdx+dir));
+  renderLb();
+}
 function closeLb(){document.getElementById('lbBd').classList.remove('open');}
 
 const CONNECTIONS=[
@@ -1014,16 +1761,38 @@ function drawPin(svg,cx,cy){
 function openSheet(fid){
   currentFolder=fid;
   const def=FOLDERS.find(f=>f.id===fid);
-  document.getElementById('shIcon').innerHTML=mkIcon(def.icon,42);
+  const isPhoto=PHOTO_FOLDERS&&PHOTO_FOLDERS.includes(fid);
+  const sheet=document.getElementById('sheet');
+
+  // Apply dark skin for photo folders
+  isPhoto ? sheet.classList.add('sheet-photo') : sheet.classList.remove('sheet-photo');
+
+  // Icon
+  document.getElementById('shIcon').innerHTML = isPhoto
+    ? '<span style="width:42px;height:42px;border-radius:10px;background:#1a1410;display:flex;align-items:center;justify-content:center;font-size:1.4rem;border:1px solid rgba(255,255,255,.1);">📷</span>'
+    : mkIcon(def.icon,42);
+
   document.getElementById('shTitle').textContent=def.name;
-  document.getElementById('shSub').textContent=def.desc;
+  const count=(data[fid]||[]).length;
+  document.getElementById('shSub').textContent=isPhoto
+    ? (def.desc+' — '+count+' shot'+(count!==1?'s':''))
+    : def.desc;
+
   const tab=document.getElementById('sheetFolderTab');
-  if(tab)tab.textContent=def.name;
+  if(tab){
+    tab.textContent=def.name;
+    if(isPhoto){
+      tab.style.cssText='background:linear-gradient(165deg,#2a2218,#1a160e);color:rgba(255,220,140,.75);border-color:rgba(255,180,60,.18);';
+    } else {
+      tab.style.cssText='';
+    }
+  }
+
   renderSheetBody(fid);
   _togglePersistBar(true);
   document.getElementById('shBd').classList.add('open');
   document.getElementById('shOuter').classList.add('open');
-  requestAnimationFrame(()=>requestAnimationFrame(()=>document.getElementById('sheet').classList.add('open')));
+  requestAnimationFrame(()=>requestAnimationFrame(()=>sheet.classList.add('open')));
 }
 function closeSheet(){
   const sheet=document.getElementById('sheet');
@@ -1033,33 +1802,258 @@ function closeSheet(){
   document.getElementById('shBd').classList.remove('open');
   sheet.addEventListener('transitionend',function h(){outer.classList.remove('open');sheet.removeEventListener('transitionend',h);});
 }
+// PHOTO GRID FOLDERS
+const PHOTO_FOLDERS=['photography','events'];
+const PHOTO_ORIENTATIONS=['portrait','landscape','square','portrait','square','landscape','portrait','landscape'];
+const TAPE_ROTS=['-2deg','1.5deg','-1deg','2.5deg','0deg','-2.5deg','1deg'];
+const CARD_ROTS=[-4,-2,3,-1,4,-3,2,-1.5,3.5,-2.5];
+
+function saveInlineEdit(el){
+  const fid=el.dataset.fid,id=parseInt(el.dataset.id),field=el.dataset.field;
+  if(!fid||!id||!field)return;
+  const arr=data[fid]||[];
+  const item=arr.find(x=>x.id===id);
+  if(item){item[field]=el.innerText.trim();save();renderAll();showToast('Saved');}
+}
+function showToast(msg){
+  let t=document.getElementById('editToast');
+  if(!t){t=document.createElement('div');t.id='editToast';t.className='edit-toast';document.body.appendChild(t);}
+  t.textContent=msg;t.classList.add('show');
+  clearTimeout(t._to);t._to=setTimeout(()=>t.classList.remove('show'),1800);
+}
+
 function renderSheetBody(fid){
   const body=document.getElementById('shBody');
   const items=data[fid]||[];
   const def=FOLDERS.find(f=>f.id===fid);
-  if(!items.length){body.innerHTML=`<div class="sh-empty"><div style="margin-bottom:8px;">${mkIcon(def.icon,48)}</div><p>No items yet.</p></div>`;return;}
+  if(!items.length){
+    body.innerHTML='<div class="sh-empty"><div style="margin-bottom:8px;">'+mkIcon(def.icon,48)+'</div><p>No items yet.</p></div>';
+    return;
+  }
   body.innerHTML='';
+  if(PHOTO_FOLDERS.includes(fid)){
+    renderPhotoGrid(fid,items,def,body);
+  } else {
+    renderListSheet(fid,items,def,body);
+  }
+}
+
+function renderPhotoGrid(fid,items,def,body){
+  // ── outer drop zone ──────────────────────────────────────────────────────
+  const zone=document.createElement('div');
+  zone.className='photo-drop-zone';
+  zone.style.cssText='position:relative;padding:20px 16px 32px;';
+
+  zone.addEventListener('dragenter',e=>{e.preventDefault();zone.classList.add('drag-over');});
+  zone.addEventListener('dragover', e=>{e.preventDefault();zone.classList.add('drag-over');});
+  zone.addEventListener('dragleave',e=>{if(!zone.contains(e.relatedTarget))zone.classList.remove('drag-over');});
+  zone.addEventListener('drop',e=>{
+    e.preventDefault();zone.classList.remove('drag-over');
+    const files=Array.from(e.dataTransfer.files).filter(f=>f.type.startsWith('image/'));
+    if(!files.length)return;
+    let done=0;
+    files.forEach(file=>{
+      const reader=new FileReader();
+      reader.onload=ev=>{
+        let key=file.name.replace(/[^a-zA-Z0-9_-]/g,'_').replace(/\.[^.]+$/,'').toLowerCase()||'photo';
+        if(userPhotos[key]||IMGS[key])key=key+'_'+Date.now();
+        userPhotos[key]=ev.target.result; saveUserPhotos();
+        if(!data[fid])data[fid]=[];
+        data[fid].push({id:++nid,title:file.name.replace(/\.[^.]+$/,'').replace(/[_-]/g,' '),meta:'',desc:'',link:'',icon:'camera',badge:'',badgeColor:'blue',img:'',imgKey:key});
+        done++;
+        if(done===files.length){save();renderSheetBody(fid);renderAll();showToast(done+' photo'+(done>1?'s':'')+' added');}
+      };
+      reader.readAsDataURL(file);
+    });
+  });
+
+  // ── drop hint (admin only) ───────────────────────────────────────────────
+  const hint=document.createElement('div');
+  hint.className='photo-drop-hint';
+  hint.textContent='📷  Drag & drop photos anywhere to add';
+  zone.appendChild(hint);
+
+  // ── the masonry grid container ───────────────────────────────────────────
+  const grid=document.createElement('div');
+  grid.className='photo-grid';
+
+  if(!items.length){
+    grid.style.cssText='position:relative;height:120px;';
+    const em=document.createElement('div');
+    em.className='photo-grid-empty-state';
+    em.innerHTML='No photos yet<br><span style="font-size:.7rem;opacity:.55;">Drop images here or tap + Add</span>';
+    zone.appendChild(em);
+    zone.appendChild(grid);
+    body.appendChild(zone);
+    return;
+  }
+
+  // ── shape definitions ────────────────────────────────────────────────────
+  // Three shapes that alternate. All look good in a ~160px column.
+  const SHAPES=[
+    {w:120,h:155,orient:'portrait'},   // tall portrait
+    {w:155,h:100,orient:'landscape'},  // wide landscape
+    {w:128,h:128,orient:'square'},     // square
+  ];
+  const ROTS   =[-3.5,-1.5, 2.5,-2.2, 3.2,-1, 4,-3, 1.8,-2.8, 2.2,-4, 3.5, 1,-2.5];
+  const TAPES  =['-2deg','1.5deg','-1deg','2.5deg','0.5deg','-3deg','1deg','-1.5deg','2deg','-0.5deg'];
+
+  // ── build card DOM (but don't position yet) ──────────────────────────────
+  const cards=[];
+  items.forEach((item,i)=>{
+    const src=(item.imgKey&&getImg(item.imgKey))?getImg(item.imgKey):item.img;
+    const shape=SHAPES[i%SHAPES.length];
+    const rot  =ROTS[i%ROTS.length];
+    const tape =TAPES[i%TAPES.length];
+
+    const card=document.createElement('div');
+    card.className='photo-card';
+    card.style.setProperty('--card-rot', rot+'deg');
+    card.style.setProperty('--tape-rot', tape);
+
+    const pol=document.createElement('div');
+    pol.className='photo-pol '+shape.orient;
+
+    const imgStyle='width:'+shape.w+'px;height:'+shape.h+'px;object-fit:cover;display:block;';
+    const imgHtml=src
+      ?('<img src="'+src+'" alt="'+item.title.replace(/"/g,'&quot;')+'" style="'+imgStyle+'">')
+      :('<div style="'+imgStyle+'display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#d4c4a8,#b8a880);font-size:2.2rem;">📷</div>');
+
+    const capAttr=isAdmin?' contenteditable="true" data-field="title" data-id="'+item.id+'" data-fid="'+fid+'"':'';
+    pol.innerHTML=imgHtml+'<div class="photo-pol-cap"'+capAttr+'>'+(item.title||'')+'</div>';
+
+    if(isAdmin){
+      pol.querySelectorAll('[contenteditable]').forEach(el=>{
+        el.addEventListener('click',e=>e.stopPropagation());
+        el.addEventListener('blur',()=>saveInlineEdit(el));
+        el.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();el.blur();}});
+      });
+      const acts=document.createElement('div');
+      acts.className='pc-acts';
+      acts.innerHTML=
+        '<button class="sa e" title="Edit" onclick="event.stopPropagation();currentFolder=\''+fid+'\';openFolderForm('+item.id+')">&#9999;</button>'+
+        '<button class="sa d" title="Del"  onclick="event.stopPropagation();currentFolder=\''+fid+'\';delItem('+item.id+')">&#10005;</button>';
+      card.appendChild(pol);
+      card.appendChild(acts);
+    } else {
+      card.appendChild(pol);
+    }
+
+    card.addEventListener('click',e=>{
+      if(e.target.closest('.pc-acts'))return;
+      if(e.target.isContentEditable)return;
+      openGalleryLb(fid,item.id);
+    });
+
+    grid.appendChild(card);
+    cards.push({card, shape, rot});
+  });
+
+  // ── Add card (admin placeholder at the end) ──────────────────────────────
+  const addCard=document.createElement('div');
+  addCard.className='photo-grid-add';
+  addCard.title='Add photo';
+  addCard.innerHTML='<span style="font-size:2rem;line-height:1;margin-bottom:2px;">+</span><span>Add photo</span>';
+  addCard.addEventListener('click',()=>{currentFolder=fid;openFolderForm(null);});
+  grid.appendChild(addCard);
+
+  zone.appendChild(grid);
+  body.appendChild(zone);
+
+  // ── Masonry layout: runs AFTER the zone is in the DOM ───────────────────
+  // We wait one rAF so the sheet has width before we calculate columns.
+  requestAnimationFrame(()=>layoutMasonry(grid, cards, addCard, isAdmin));
+}
+
+// ── MASONRY LAYOUT ENGINE ──────────────────────────────────────────────────
+function layoutMasonry(grid, cards, addCard, showAdd){
+  const COLS_DESKTOP=3;
+  const COLS_MOBILE =2;
+  const COL_GAP =18;   // px between columns
+  const ROW_GAP =40;   // px between rows (extra for tape + tilt overflow)
+  const PAD     =12;   // left/right padding inside grid
+
+  const totalW=grid.offsetWidth||300;
+  const cols=(totalW<380)?COLS_MOBILE:COLS_DESKTOP;
+  const colW=Math.floor((totalW - PAD*2 - COL_GAP*(cols-1)) / cols);
+
+  // Heights array — one per column, tracks how tall each column is
+  const heights=new Array(cols).fill(ROW_GAP); // start with top padding
+
+  cards.forEach(({card, shape, rot})=>{
+    // Pick shortest column
+    const col=heights.indexOf(Math.min(...heights));
+    const x=PAD + col*(colW+COL_GAP);
+    const y=heights[col];
+
+    // Scale the polaroid to fit the column width (with 7px padding each side)
+    const available=colW;
+    const polW =shape.w+14; // polaroid = img + 7px left + 7px right padding
+    const scale=Math.min(1, available/polW);
+
+    // Apply position and scale
+    card.style.left  =x+'px';
+    card.style.top   =y+'px';
+    card.style.width =colW+'px';    // cell width = col width
+    card.style.display='flex';
+    card.style.alignItems='center';
+    card.style.justifyContent='center';
+    if(scale<1){
+      // Scale the polaroid shell down to fit
+      const pol=card.querySelector('.photo-pol');
+      if(pol) pol.style.transform='scale('+scale+')';
+      // Adjust effective height
+      const polH=(shape.h+14+28)*scale; // img h + top pad + caption
+      heights[col]+=polH+ROW_GAP;
+    } else {
+      heights[col]+=(shape.h+14+28)+ROW_GAP; // img h + top/bot pad + caption
+    }
+  });
+
+  // Place add card in shortest column
+  if(showAdd && addCard){
+    const col=heights.indexOf(Math.min(...heights));
+    const x=PAD + col*(colW+COL_GAP);
+    const y=heights[col];
+    addCard.style.left  =x+'px';
+    addCard.style.top   =y+'px';
+    addCard.style.width =colW+'px';
+    addCard.style.height=(Math.max(...Object.values({portrait:155+14+28,landscape:100+14+28,square:128+14+28})))+'px';
+    heights[col]+=180+ROW_GAP;
+  }
+
+  // Set grid height to tallest column
+  grid.style.height=Math.max(...heights)+'px';
+  // Cache for resize recalc
+  grid._masonryData={cards,addCard,showAdd};
+}
+
+function renderListSheet(fid,items,def,body){
   items.forEach(item=>{
     const row=document.createElement('div');row.className='shi';
     const src=(item.imgKey&&getImg(item.imgKey))?getImg(item.imgKey):item.img;
-    const imgEl=src?`<img class="shi-img" src="${src}" alt="">`:'';
-    const badge=item.badge?`<span class="shi-badge ${item.badgeColor}">${item.badge}</span>`:'';
-    row.innerHTML=`
-      ${mkIcon(item.icon,42)}
-      <div class="shi-txt" style="pointer-events:none;"><div class="shi-title">${item.title}</div><div class="shi-meta">${item.meta}</div></div>
-      ${imgEl}
-      <div class="shi-right">
-        ${badge}
-        <div class="shi-acts">
-          <button class="sa e" onclick="event.stopPropagation();openFolderForm(${item.id})">&#9999;</button>
-          <button class="sa d" onclick="event.stopPropagation();delItem(${item.id})">&#10005;</button>
-        </div>
-        <span class="shi-chev" style="pointer-events:none;">&#8250;</span>
-      </div>`;
+    const imgEl=src?('<img class="shi-img" src="'+src+'" alt="">'):'';
+    const badge=item.badge?('<span class="shi-badge '+item.badgeColor+'">'+item.badge+'</span>'):'';
+    const eA=isAdmin?' contenteditable="true"':'';
+    const dA=isAdmin?' style="pointer-events:auto;"':' style="pointer-events:none;"';
+    row.innerHTML=mkIcon(item.icon,42)+
+      '<div class="shi-txt"'+dA+'>'+
+        '<div class="shi-title"'+eA+' data-field="title" data-id="'+item.id+'" data-fid="'+fid+'">'+item.title+'</div>'+
+        '<div class="shi-meta"'+eA+' data-field="meta" data-id="'+item.id+'" data-fid="'+fid+'">'+item.meta+'</div>'+
+      '</div>'+
+      imgEl+
+      '<div class="shi-right">'+badge+
+        '<div class="shi-acts"><button class="sa e" onclick="event.stopPropagation();openFolderForm('+item.id+')">&#9999;</button><button class="sa d" onclick="event.stopPropagation();delItem('+item.id+')">&#10005;</button></div>'+
+        '<span class="shi-chev" style="pointer-events:none;">&#8250;</span>'+
+      '</div>';
+    row.querySelectorAll('[contenteditable]').forEach(el=>{
+      el.addEventListener('blur',()=>saveInlineEdit(el));
+      el.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();el.blur();}});
+    });
     if(item.special==='resume'){
-      row.addEventListener('click',function(e){if(e.target.closest('.sa'))return;openResume();});
+      row.addEventListener('click',function(e){if(e.target.closest('.sa')||e.target.isContentEditable)return;openResume();});
     } else {
-      row.addEventListener('click',(function(it,df){return function(e){if(e.target.closest('.sa'))return;openDetail(it,df);};})(item,def));
+      row.addEventListener('click',(function(it,df){return function(e){if(e.target.closest('.sa')||e.target.isContentEditable)return;openDetail(it,df);};})(item,def));
     }
     body.appendChild(row);
   });
@@ -1095,7 +2089,7 @@ function openDetail(item,def){
 }
 function closePaper(){document.getElementById('paperBd').classList.remove('open');}
 
-function openResume(){dismissIntro();
+function openResume(){
   document.getElementById('paperTabLabel').textContent='Curriculum Vitae';
   document.getElementById('paperBody').innerHTML=`
     <div style="text-align:center;margin-bottom:20px;padding-bottom:16px;border-bottom:2px solid #1a1008;">
@@ -1361,8 +2355,16 @@ function checkPwd(){
   if(document.getElementById('pwdIn').value===ADMIN_PWD){enableAdmin();closePwd();}
   else{const i=document.getElementById('pwdIn');i.classList.remove('shake');void i.offsetWidth;i.classList.add('shake');i.value='';}
 }
-function enableAdmin(){isAdmin=true;document.body.classList.add('admin-mode');if(currentFolder)renderSheetBody(currentFolder);}
-function disableAdmin(){isAdmin=false;document.body.classList.remove('admin-mode');if(currentFolder)renderSheetBody(currentFolder);}
+function enableAdmin(){
+  isAdmin=true;document.body.classList.add('admin-mode');
+  renderSc(); // rebuild sc-items with draggable=true
+  if(currentFolder)renderSheetBody(currentFolder);
+}
+function disableAdmin(){
+  isAdmin=false;document.body.classList.remove('admin-mode');
+  renderSc(); // rebuild sc-items with draggable=false
+  if(currentFolder)renderSheetBody(currentFolder);
+}
 function closePwd(){document.getElementById('pwdBd').classList.remove('open');}
 
 function handlePhotoDrop(e){
@@ -1407,24 +2409,50 @@ function updateDropPreview(url){
 }
 
 
-// ── INTRO OVERLAY ──
+// ── INTRO SPLASH — no buttons, pure auto-dismiss ──
 function dismissIntro(){
   const o=document.getElementById('introOverlay');
-  if(o){o.classList.add('gone');}
+  if(o)o.classList.add('gone');
   localStorage.setItem('sogiIntroSeen','1');
 }
-// Auto-show intro unless seen before
-(function(){
-  if(!localStorage.getItem('sogiIntroSeen')){
-    // Show for first-time visitors; auto-dismiss after 8s if they don't click
-    setTimeout(()=>{
-      const o=document.getElementById('introOverlay');
-      if(o&&!o.classList.contains('gone'))o.classList.add('gone');
-    },8000);
-  } else {
-    const o=document.getElementById('introOverlay');
-    if(o)o.style.display='none';
+
+(function initIntro(){
+  const o=document.getElementById('introOverlay');
+  if(!o)return;
+
+  // Seen before → skip entirely with no flash
+  if(localStorage.getItem('sogiIntroSeen')){
+    o.style.display='none';
+    return;
   }
+
+  // Animate the loading bar over 2.8s then fade out
+  const bar=document.getElementById('introBar');
+  const DURATION=2800; // ms total splash time
+  const FADE=700;      // fade duration matches CSS transition
+
+  // Kick off bar fill after a tiny delay so transition registers
+  requestAnimationFrame(()=>{
+    requestAnimationFrame(()=>{
+      if(bar){
+        bar.style.transition='width '+(DURATION-300)+'ms linear';
+        bar.style.width='100%';
+      }
+    });
+  });
+
+  // Dismiss after DURATION
+  setTimeout(()=>{
+    o.classList.add('gone');
+    // Mark seen after fade completes
+    setTimeout(()=>localStorage.setItem('sogiIntroSeen','1'), FADE);
+  }, DURATION);
+
+  // Also dismiss on any tap/click anywhere
+  o.addEventListener('click',()=>{
+    o.classList.add('gone');
+    localStorage.setItem('sogiIntroSeen','1');
+  },{once:true});
 })();
 
 // ── ROLE TABS ──
@@ -1455,9 +2483,60 @@ function _togglePersistBar(hide){
   if(b)b.style.display=hide?'none':'';
 }
 
+// Keyboard navigation for lightbox
+document.addEventListener('keydown',e=>{
+  const lb=document.getElementById('lbBd');
+  if(!lb||!lb.classList.contains('open'))return;
+  if(e.key==='ArrowLeft'||e.key==='ArrowUp')lbNav(-1);
+  else if(e.key==='ArrowRight'||e.key==='ArrowDown')lbNav(1);
+  else if(e.key==='Escape')closeLb();
+});
+
+// ── Cork board: drop image from desktop → add polaroid ──
+document.addEventListener('DOMContentLoaded',()=>{
+  const cork=document.querySelector('.cork');
+  if(!cork)return;
+  cork.addEventListener('dragover',e=>{
+    if(!isAdmin)return;
+    // Only for file drops (not sc-item reordering which uses getData)
+    if(e.dataTransfer.types.includes('Files')){
+      e.preventDefault();
+      cork.style.outline='3px dashed rgba(185,28,28,.5)';
+    }
+  });
+  cork.addEventListener('dragleave',()=>cork.style.outline='');
+  cork.addEventListener('drop',e=>{
+    cork.style.outline='';
+    if(!isAdmin)return;
+    if(!e.dataTransfer.files.length)return;
+    e.preventDefault();
+    Array.from(e.dataTransfer.files).filter(f=>f.type.startsWith('image/')).forEach(file=>{
+      const reader=new FileReader();
+      reader.onload=ev=>{
+        let key=file.name.replace(/[^a-zA-Z0-9_-]/g,'_').replace(/[.][^.]+$/,'').toLowerCase()||'photo';
+        if(userPhotos[key]||IMGS[key])key=key+'_'+Date.now();
+        userPhotos[key]=ev.target.result;saveUserPhotos();
+        sc.push({id:'sc'+(++nid),type:'polaroid',caption:file.name.replace(/[.][^.]+$/,'').replace(/[_-]/g,' '),img:'',imgKey:key,folder:'photography',corner:'tr',rot:Math.round((Math.random()-0.5)*8),zFront:true});
+        saveSc();renderSc();drawStrings();showToast('Photo added to board!');
+      };
+      reader.readAsDataURL(file);
+    });
+  });
+});
+
 renderAll();
 window.addEventListener('load',()=>{setTimeout(()=>{renderSc();drawStrings();},400);});
-window.addEventListener('resize',()=>{setTimeout(()=>{positionSc();drawStrings();},100);});
+window.addEventListener('resize',()=>{
+  setTimeout(()=>{
+    positionSc();drawStrings();
+    // Re-layout any open photo grid on resize
+    const grid=document.querySelector('.photo-grid');
+    if(grid && grid._masonryData){
+      const {cards,addCard,showAdd}=grid._masonryData;
+      layoutMasonry(grid,cards,addCard,showAdd);
+    }
+  },100);
+});
 </script>
 </body>
 </html>
